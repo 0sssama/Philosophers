@@ -1,0 +1,9 @@
+*.test
+*.dSYM
+*.out
+*.o
+*.a
+.vscode
+*.json
+.DS_Store
+/$HOME
