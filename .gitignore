@@ -9,3 +9,5 @@
 /$HOME
 philo
 /build
+/src/utils/libft/build
+/.git
