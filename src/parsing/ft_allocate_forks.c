@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fill_state.c                                    :+:      :+:    :+:   */
+/*   ft_allocate_forks.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/25 11:49:56 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/05/26 10:37:13 by olabrahm         ###   ########.fr       */
+/*   Created: 2022/05/26 10:37:18 by olabrahm          #+#    #+#             */
+/*   Updated: 2022/05/26 10:40:15 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	ft_fill_state(t_state *state, char **av)
+void	ft_allocate_forks(t_state *state)
 {
-	state->num_of_philos = ft_atoi(av[1]);
-	state->time_to_die = ft_atoi(av[2]);
-	state->time_to_eat = ft_atoi(av[3]);
-	state->time_to_sleep = ft_atoi(av[4]);
-	if (av[5])
-		state->total_eats = ft_atoi(av[5]);
-	else
-		state->total_eats = -1;
-	ft_allocate_philos(state);
-	ft_allocate_forks(state);
+	printf("allocating forks...\n");
 }

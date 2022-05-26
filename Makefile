@@ -8,7 +8,7 @@ PHILO_HEADER = $(PHILO_INCLUDE)/philo.h
 LIBFT_HEADER = $(LIBFT_INCLUDE)/libft.h
 HEADERS = $(PHILO_HEADER) $(LIBFT_HEADER)
 SRC = main parsing/ft_check_args parsing/ft_fill_state parsing/ft_allocate_philos \
-		exits/ft_error
+		exits/ft_error parsing/ft_allocate_forks
 OBJ = $(addprefix $(B_DIR)/, $(SRC:=.o))
 LIBFT_DIR=src/utils/libft
 LIBFT=src/utils/libft/libft.a

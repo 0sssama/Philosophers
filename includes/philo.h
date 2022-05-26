@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 11:22:04 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/05/26 10:28:07 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/05/26 10:40:32 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ typedef struct	s_state
 // parsing
 int		ft_check_args(int ac, char **av);
 void	ft_fill_state(t_state *state, char **av);
-void	ft_allocate_philos(t_state *state);
 void	ft_error(char *msg);
+void	ft_allocate_philos(t_state *state);
+void	ft_allocate_forks(t_state *state);
 
 #endif
