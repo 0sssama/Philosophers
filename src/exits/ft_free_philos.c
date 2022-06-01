@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 09:50:10 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/01 09:55:44 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/01 13:31:43 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,4 @@ void	ft_free_philos(t_state *state)
 	}
 	free(state->philos);
 	state->philos = NULL;
-	printf("philos freed\n");
 }

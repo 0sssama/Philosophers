@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 09:51:56 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/01 09:52:30 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/01 13:31:47 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,4 @@ void	ft_free_forks(t_state *state)
 	}
 	free(forks);
 	state->forks = NULL;
-	printf("forks freed\n");
 }

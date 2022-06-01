@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 12:01:46 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/01 11:53:27 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/01 13:31:13 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,4 @@ void	ft_allocate_philos(t_state *state)
 		i++;
 	}
 	state->philos = philos;
-	printf("philos allocated\n");
 }

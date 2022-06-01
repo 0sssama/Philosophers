@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:01:03 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/01 12:09:33 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/01 13:31:10 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,4 @@ void	ft_init_simulation(t_state *state)
 		pthread_join(state->philos[i].thread, NULL);
 		i++;
 	}
-	printf("philos initialized\n");
 }

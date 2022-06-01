@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 10:37:18 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/01 10:24:11 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/01 13:31:15 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,4 @@ void	ft_allocate_forks(t_state *state)
 		i++;
 	}
 	state->forks = forks;
-	printf("forks allocated, mutexes initialized\n");
 }

@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 11:22:04 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/01 12:10:01 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/01 13:30:45 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 typedef struct s_philo
 {
 	int				id;
+	int				last_time_eaten;
 	pthread_t		thread;
 	struct	s_state	*state;
 }	t_philo;
