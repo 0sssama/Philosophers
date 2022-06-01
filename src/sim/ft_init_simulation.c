@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:01:03 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/01 14:23:09 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/01 15:12:19 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,9 @@ void	ft_init_simulation(t_state *state)
 	while (i < state->num_of_philos)
 	{
 		pthread_create(&state->philos[i].thread, NULL, ft_routine, &state->philos[i]);
+		pthread_detach(state->philos[i].thread);
 		i++;
 	}
-	pthread_create(&state->monitor, NULL, ft_monitor, state);
-	pthread_detach(state->monitor);
-	i = 0;
-	while (i < state->num_of_philos)
-	{
-		pthread_join(state->philos[i].thread, NULL);
-		i++;
-	}
+	if (ft_monitor(state))
+		return ;
 }
