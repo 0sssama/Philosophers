@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 PHILO_INCLUDE = includes
 LIBFT_INCLUDE = src/utils/libft
 INCLUDE = -I $(PHILO_INCLUDE) -I $(LIBFT_INCLUDE)

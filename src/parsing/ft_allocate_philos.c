@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 12:01:46 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/01 13:31:13 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/01 14:38:09 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	ft_allocate_philos(t_state *state)
 	{
 		philos[i].id = i + 1;
 		philos[i].state = state;
+		philos[i].last_time_eaten = 0;
 		i++;
 	}
 	state->philos = philos;
