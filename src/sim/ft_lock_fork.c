@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 12:07:19 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/01 14:36:19 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/01 15:24:07 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ void	ft_lock_left_fork(t_philo *philo)
 
 void	ft_unlock_right_fork(t_philo *philo)
 {
+	if (philo->state->forks[philo->id].id == -1)
+	{
+		ft_unlock_left_fork(philo);
+		return ;
+	}
 	pthread_mutex_unlock(&philo->state->forks[philo->id].mutex);
 }
 
