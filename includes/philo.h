@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 11:22:04 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/01 10:19:50 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/01 11:57:27 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@
 // define a struct called s_philo
 typedef struct s_philo
 {
-	int			id;
-	pthread_t	thread;
+	int				id;
+	pthread_t		thread;
+	struct	s_state	*state;
 }	t_philo;
 
 // define a struct called s_fork
@@ -58,6 +59,7 @@ void	ft_allocate_forks(t_state *state);
 // simulation
 int		ft_current_time(t_state *state);
 void	ft_init_simulation(t_state *state);
+void	ft_log(char *str, int id, t_state *state);
 
 // exits
 void	ft_error(char *msg);
