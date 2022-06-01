@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 11:22:04 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/01 09:44:19 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/01 09:59:47 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 typedef struct s_philo
 {
 	int			id;
-	int			timestamp;
 	pthread_t	thread;
 }	t_philo;
 
@@ -51,5 +50,7 @@ void	ft_fill_state(t_state *state, char **av);
 void	ft_error(char *msg);
 void	ft_allocate_philos(t_state *state);
 void	ft_allocate_forks(t_state *state);
+void	ft_free_philos(t_state *state);
+void	ft_free_forks(t_state *state);
 
 #endif
