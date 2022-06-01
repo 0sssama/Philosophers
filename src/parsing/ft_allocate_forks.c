@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 10:37:18 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/05/26 10:40:15 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/01 09:47:52 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,19 @@
 
 void	ft_allocate_forks(t_state *state)
 {
-	printf("allocating forks...\n");
+	int		i;
+	t_fork	*forks;
+
+	i = 0;
+	forks = (t_fork *) malloc(state->num_of_philos * sizeof(t_fork));
+	if (!forks)
+		ft_error("Malloc failed");
+	while (i < state->num_of_philos)
+	{
+		forks[i].id = i + 1;
+		pthread_mutex_init(&forks[i].mutex, NULL);
+		i++;
+	}
+	state->forks = forks;
+	printf("forks allocated, mutexes initialized\n");
 }

@@ -10,7 +10,7 @@ AR= ar rc
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) libft.h
 	@$(AR) $(NAME) $(OBJS)
 
 $(B_DIR)/%.o: %.c

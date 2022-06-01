@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 11:22:04 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/05/26 10:40:32 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/01 09:44:19 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,13 @@ typedef struct s_philo
 	pthread_t	thread;
 }	t_philo;
 
+// define a struct called s_fork
+typedef struct s_fork
+{
+	int				id;
+	pthread_mutex_t	mutex;
+}	t_fork;
+
 // define a struct called s_state
 typedef struct	s_state
 {
@@ -35,6 +42,7 @@ typedef struct	s_state
 	int		time_to_sleep; // in ms
 	int		total_eats; // in ms
 	t_philo	*philos;
+	t_fork	*forks;
 }	t_state;
 
 // parsing
