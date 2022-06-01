@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_init_simulation.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/18 11:11:53 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/01 10:00:48 by olabrahm         ###   ########.fr       */
+/*   Created: 2022/06/01 10:01:03 by olabrahm          #+#    #+#             */
+/*   Updated: 2022/06/01 10:21:50 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int ac, char **av)
+void	ft_init_simulation(t_state *state)
 {
-	t_state		state;
-
-	if (!ft_check_args(ac, av))
-		return (1);
-	ft_fill_state(&state, av);
-	ft_init_simulation(&state);
-	ft_free_philos(&state);
-	ft_free_forks(&state);
-	return (0);
+	state->time_of_start = ft_current_time(state);
+	ft_putnbr_fd(ft_current_time(state), 1);
+	ft_putchar_fd('\n', 1);
+	usleep(30000);
+	ft_putnbr_fd(ft_current_time(state), 1);
+	ft_putchar_fd('\n', 1);
 }

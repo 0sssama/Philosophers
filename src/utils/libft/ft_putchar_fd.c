@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/18 11:11:53 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/01 10:00:48 by olabrahm         ###   ########.fr       */
+/*   Created: 2022/06/01 10:14:01 by olabrahm          #+#    #+#             */
+/*   Updated: 2022/06/01 10:14:12 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	ft_putchar_fd(char c, int fd)
 {
-	t_state		state;
-
-	if (!ft_check_args(ac, av))
-		return (1);
-	ft_fill_state(&state, av);
-	ft_init_simulation(&state);
-	ft_free_philos(&state);
-	ft_free_forks(&state);
-	return (0);
+	write(fd, &c, 1);
 }

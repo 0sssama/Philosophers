@@ -1,7 +1,8 @@
 CC=gcc
 FLAGS=-Wall -Wextra -Werror
 B_DIR = build
-MANDATORY =	ft_strlen ft_strdup ft_putstr_fd ft_putendl_fd ft_atoi ft_isdigit
+MANDATORY =	ft_strlen ft_strdup ft_putstr_fd ft_putendl_fd ft_atoi ft_isdigit ft_putnbr_fd \
+			ft_putchar_fd
 OBJS= $(addprefix $(B_DIR)/, $(MANDATORY:=.o))
 NAME=libft.a
 AR= ar rc
