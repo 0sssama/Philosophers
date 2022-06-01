@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:01:03 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/01 13:31:10 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/01 13:36:36 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ void	*ft_routine(void *philo)
 	ph = (t_philo *)philo;
 	while (1)
 	{
-		// hmmmmm
+		// hmmmmm - thinking
 		ft_log("Is thinking...", ph->id, ph->state);
-
-		// eating
+		// yum yum yum - eating
 		if (ph->id % 2 == 0)
 			ft_lock_left_fork(ph);
 		else
@@ -36,8 +35,8 @@ void	*ft_routine(void *philo)
 		usleep(ph->state->time_to_eat * 1000);
 		ft_unlock_left_fork(ph);
 		ft_unlock_right_fork(ph);
-
-		// sleep
+		ph->last_time_eaten = ft_current_time(ph->state);
+		// ZzzzZZzz - sleeping
 		ft_log("Is sleeping...", ph->id, ph->state);
 		usleep(ph->state->time_to_sleep * 1000);
 	}
