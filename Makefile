@@ -9,7 +9,7 @@ LIBFT_HEADER = $(LIBFT_INCLUDE)/libft.h
 HEADERS = $(PHILO_HEADER) $(LIBFT_HEADER)
 SRC = main parsing/ft_check_args parsing/ft_fill_state parsing/ft_allocate_philos \
 		exits/ft_error parsing/ft_allocate_forks exits/ft_free_philos exits/ft_free_forks \
-		sim/ft_init_simulation sim/ft_current_time sim/ft_log
+		sim/ft_init_simulation sim/ft_current_time sim/ft_log sim/ft_lock_fork
 OBJ = $(addprefix $(B_DIR)/, $(SRC:=.o))
 LIBFT_DIR=src/utils/libft
 LIBFT=src/utils/libft/libft.a
