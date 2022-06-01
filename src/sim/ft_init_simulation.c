@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:01:03 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/01 13:36:36 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/01 13:50:11 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_routine(void *philo)
 	t_philo		*ph;
 
 	ph = (t_philo *)philo;
-	while (1)
+	while (420)
 	{
 		// hmmmmm - thinking
 		ft_log("Is thinking...", ph->id, ph->state);
@@ -60,4 +60,6 @@ void	ft_init_simulation(t_state *state)
 		pthread_join(state->philos[i].thread, NULL);
 		i++;
 	}
+	pthread_create(&state->monitor, NULL, ft_monitor, state);
+	pthread_detach(state->monitor);
 }

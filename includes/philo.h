@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 11:22:04 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/01 13:30:45 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/01 13:51:47 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,16 @@ typedef struct timeval t_time;
 // define a struct called s_state
 typedef struct	s_state
 {
-	int		num_of_philos; // also num of forks
-	int		time_to_die; // in ms
-	int		time_to_eat; // in ms
-	int		time_to_sleep; // in ms
-	int		total_eats; // in ms
-	int		time_of_start; // in ms
-	t_time	current_time; // in ms
-	t_philo	*philos;
-	t_fork	*forks;
+	int			num_of_philos; // also num of forks
+	int			time_to_die; // in ms
+	int			time_to_eat; // in ms
+	int			time_to_sleep; // in ms
+	int			total_eats; // in ms
+	int			time_of_start; // in ms
+	t_time		current_time; // in ms
+	t_philo		*philos;
+	t_fork		*forks;
+	pthread_t	monitor; // monitors if any of the philos died
 }	t_state;
 
 // parsing
@@ -65,6 +66,7 @@ void	ft_lock_right_fork(t_philo *philo);
 void	ft_lock_left_fork(t_philo *philo);
 void	ft_unlock_right_fork(t_philo *philo);
 void	ft_unlock_left_fork(t_philo *philo);
+void	*ft_monitor(void *s);
 
 // exits
 void	ft_error(char *msg);
