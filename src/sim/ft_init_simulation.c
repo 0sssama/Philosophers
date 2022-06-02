@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:01:03 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/02 10:46:11 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/02 11:20:58 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ void	*ft_routine(void *philo)
 			ft_lock_left_fork(ph);
 		ph->last_time_eaten = ft_current_time(ph->state);
 		ft_log("Is eating...", ph->id, ph->state);
-		ft_usleep(ph->state->time_to_eat * 1000);
+		ft_usleep(ph->state->time_to_eat);
 		ft_unlock_left_fork(ph);
 		ft_unlock_right_fork(ph);
 		// ZzzzZZzz - sleeping
 		ft_log("Is sleeping...", ph->id, ph->state);
-		ft_usleep(ph->state->time_to_sleep * 1000);
+		ft_usleep(ph->state->time_to_sleep);
 		// hmmmmm - thinking
 		ft_log("Is thinking...", ph->id, ph->state);
 	}
