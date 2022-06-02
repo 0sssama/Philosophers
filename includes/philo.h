@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 11:22:04 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/02 10:23:51 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/02 11:00:25 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ void	ft_unlock_right_fork(t_philo *philo);
 void	ft_unlock_left_fork(t_philo *philo);
 int		ft_monitor(t_state *state);
 void	ft_usleep(int time);
+t_fork	*ft_right_fork(t_philo *philo);
+t_fork	*ft_left_fork(t_philo *philo);
 
 // exits
 void	ft_error(char *msg);
