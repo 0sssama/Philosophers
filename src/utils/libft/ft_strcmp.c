@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_log.c                                           :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/01 11:54:16 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/02 10:24:05 by olabrahm         ###   ########.fr       */
+/*   Created: 2022/06/02 10:22:44 by olabrahm          #+#    #+#             */
+/*   Updated: 2022/06/02 10:24:21 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "libft.h"
 
-void	ft_log(char *str, int id, t_state *state)
+int	ft_strcmp(char *s1, char *s2)
 {
-	pthread_mutex_lock(&state->writing);
-	printf("%10d: %d %s\n", ft_current_time(state), id, str);
-	if (ft_strcmp(str, "Is dead."))
-		pthread_mutex_unlock(&state->writing);
+	int		i;
+
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
 }

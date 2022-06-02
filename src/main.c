@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 11:11:53 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/01 15:12:59 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/02 10:21:45 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ int	main(int ac, char **av)
 	ft_init_simulation(&state);
 	ft_free_philos(&state);
 	ft_free_forks(&state);
+	pthread_mutex_destroy(&state.writing);
 	return (1);
 }

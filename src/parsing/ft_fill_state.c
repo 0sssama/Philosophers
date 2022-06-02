@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 11:49:56 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/01 10:20:44 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/02 10:21:20 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ void	ft_fill_state(t_state *state, char **av)
 		state->total_eats = -1;
 	ft_allocate_philos(state);
 	ft_allocate_forks(state);
+	pthread_mutex_init(&state->writing, NULL);
 }
