@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:01:03 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/02 11:20:58 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/03 11:07:31 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,14 @@ void	*ft_routine(void *philo)
 	t_philo		*ph;
 
 	ph = (t_philo *)philo;
-	while (420)
+	while (!ph->state->flag)
 	{
+		// hmmmmm - thinking
+		ft_log("Is thinking...", ph->id, ph->state);
+		usleep(50);
 		// yum yum yum - eating
-		if (ph->id % 2 == 0)
-			ft_lock_left_fork(ph);
-		else
-			ft_lock_right_fork(ph);
-		if (ph->id % 2 == 0)
-			ft_lock_right_fork(ph);
-		else
-			ft_lock_left_fork(ph);
+		ft_lock_left_fork(ph);
+		ft_lock_right_fork(ph);
 		ph->last_time_eaten = ft_current_time(ph->state);
 		ft_log("Is eating...", ph->id, ph->state);
 		ft_usleep(ph->state->time_to_eat);
@@ -36,8 +33,6 @@ void	*ft_routine(void *philo)
 		// ZzzzZZzz - sleeping
 		ft_log("Is sleeping...", ph->id, ph->state);
 		ft_usleep(ph->state->time_to_sleep);
-		// hmmmmm - thinking
-		ft_log("Is thinking...", ph->id, ph->state);
 	}
 	return (NULL);
 }
@@ -52,8 +47,7 @@ void	ft_init_simulation(t_state *state)
 	{
 		pthread_create(&state->philos[i].thread, NULL, ft_routine, &state->philos[i]);
 		pthread_detach(state->philos[i].thread);
+		usleep(100);
 		i++;
 	}
-	if (ft_monitor(state))
-		return ;
 }

@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 11:22:04 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/02 11:00:25 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/03 11:04:35 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct	s_state
 	int				time_to_sleep; // in ms
 	int				total_eats; // in ms
 	int				time_of_start; // in ms
+	int				flag;
 	t_time			current_time; // in ms
 	t_philo			*philos;
 	t_fork			*forks;
