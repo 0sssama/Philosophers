@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 13:40:01 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/03 12:16:52 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/03 12:45:35 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_monitor(t_state *state)
 			{
 				state->flag = 1;
 				ft_log("Is dead.", state->philos[i].id, state);
-				return (1);
+				exit(1);
 			}
 			i++;
 		}

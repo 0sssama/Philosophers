@@ -6,27 +6,25 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 15:14:57 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/03 12:15:59 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/03 12:47:27 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static int	ft_to_ms(t_time time)
+long	ft_get_current_time(void)
 {
-	return (time.tv_sec * 1000 + time.tv_usec / 1000);
+	t_time	current_time;
+
+	gettimeofday(&current_time, NULL);
+	return (current_time.tv_sec * 1000 + current_time.tv_usec / 1000);
 }
 
 void	ft_usleep(int time)
 {
-	t_time	start_time;
-	t_time	now;
+	long	time_of_start;
 
-	gettimeofday(&start_time, NULL);
-	gettimeofday(&now, NULL);
-	while (ft_to_ms(start_time) + time > ft_to_ms(now))
-	{
+	time_of_start = ft_get_current_time();
+	while (ft_get_current_time() - time_of_start < time)
 		usleep(50);
-		gettimeofday(&now, NULL);
-	}
 }
