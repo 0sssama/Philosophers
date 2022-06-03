@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 13:40:01 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/03 12:05:17 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/03 12:16:52 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	ft_monitor(t_state *state)
 
 	while (69)
 	{
+		usleep(100);
 		i = 0;
 		while (i < state->num_of_philos)
 		{
