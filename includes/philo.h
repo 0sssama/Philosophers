@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 11:22:04 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/03 11:04:35 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/03 11:50:41 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ typedef struct	s_state
 	t_time			current_time; // in ms
 	t_philo			*philos;
 	t_fork			*forks;
-	pthread_t		monitor; // monitors if any of the philos died
 	pthread_mutex_t	writing;
 }	t_state;
 

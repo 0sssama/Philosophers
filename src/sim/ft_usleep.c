@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 15:14:57 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/03 11:00:53 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/03 11:59:34 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,11 @@ void	ft_usleep(int time)
 {
 	t_time	start_time;
 	t_time	now;
+	int		majority;
 
 	gettimeofday(&start_time, NULL);
+	majority = time * .7;
+	usleep(majority);
 	while (1)
 	{
 		gettimeofday(&now, NULL);

@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:01:03 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/03 11:07:31 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/03 11:55:34 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	*ft_routine(void *philo)
 	{
 		// hmmmmm - thinking
 		ft_log("Is thinking...", ph->id, ph->state);
-		usleep(50);
 		// yum yum yum - eating
 		ft_lock_left_fork(ph);
 		ft_lock_right_fork(ph);
@@ -46,8 +45,7 @@ void	ft_init_simulation(t_state *state)
 	while (i < state->num_of_philos)
 	{
 		pthread_create(&state->philos[i].thread, NULL, ft_routine, &state->philos[i]);
-		pthread_detach(state->philos[i].thread);
 		usleep(100);
 		i++;
-	}
+	}	//pthread_detach(state->philos[i].thread);
 }
