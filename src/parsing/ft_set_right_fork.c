@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_allocate_forks.c                                :+:      :+:    :+:   */
+/*   ft_set_right_fork.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 10:37:18 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/03 11:52:42 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/03 13:22:54 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <errno.h>
 
-void	ft_allocate_forks(t_state *state)
+void	ft_set_right_fork(t_state *state)
 {
-	int		i;
-	t_fork	*forks;
+	int	i;
 
 	i = 0;
-	forks = (t_fork *) malloc(state->num_of_philos * sizeof(t_fork));
-	if (!forks)
-		ft_error("Malloc failed");
 	while (i < state->num_of_philos)
 	{
-		forks[i].id = i;
-		pthread_mutex_init(&forks[i].mutex, NULL);
+		if (i == 0)
+			state->philos[i].right_fork = &state->philos[state->num_of_philos - 1].left_fork;
+		else
+			state->philos[i].right_fork = &state->philos[i - 1].left_fork;
 		i++;
 	}
-	state->forks = forks;
 }

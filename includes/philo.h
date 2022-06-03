@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 11:22:04 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/03 11:50:41 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/03 13:22:13 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,11 @@ typedef struct s_philo
 	int				id;
 	int				last_time_eaten;
 	pthread_t		thread;
+	pthread_mutex_t	left_fork;
+	pthread_mutex_t	*right_fork;
 	struct	s_state	*state;
 }	t_philo;
 
-// define a struct called s_fork
-typedef struct s_fork
-{
-	int				id;
-	pthread_mutex_t	mutex;
-}	t_fork;
 
 typedef struct timeval t_time;
 
@@ -49,7 +45,6 @@ typedef struct	s_state
 	int				flag;
 	t_time			current_time; // in ms
 	t_philo			*philos;
-	t_fork			*forks;
 	pthread_mutex_t	writing;
 }	t_state;
 
@@ -57,7 +52,7 @@ typedef struct	s_state
 int		ft_check_args(int ac, char **av);
 void	ft_fill_state(t_state *state, char **av);
 void	ft_allocate_philos(t_state *state);
-void	ft_allocate_forks(t_state *state);
+void	ft_set_right_fork(t_state *state);
 
 // simulation
 int		ft_current_time(t_state *state);
@@ -69,8 +64,6 @@ void	ft_unlock_right_fork(t_philo *philo);
 void	ft_unlock_left_fork(t_philo *philo);
 int		ft_monitor(t_state *state);
 void	ft_usleep(int time);
-t_fork	*ft_right_fork(t_philo *philo);
-t_fork	*ft_left_fork(t_philo *philo);
 
 // exits
 void	ft_error(char *msg);

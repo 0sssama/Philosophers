@@ -6,11 +6,12 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 11:49:56 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/03 11:05:01 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/03 13:22:43 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <errno.h>
 
 void	ft_fill_state(t_state *state, char **av)
 {
@@ -25,6 +26,6 @@ void	ft_fill_state(t_state *state, char **av)
 	else
 		state->total_eats = -1;
 	ft_allocate_philos(state);
-	ft_allocate_forks(state);
+	ft_set_right_fork(state);
 	pthread_mutex_init(&state->writing, NULL);
 }
