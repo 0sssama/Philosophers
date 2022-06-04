@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 11:31:58 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/05/26 10:31:51 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/04 13:35:08 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_check_args(int ac, char **av)
 		return (ft_print_usage(), 0);
 	while (av[i])
 	{
-		if (ft_contains_non_digit(av[i]) || ft_atoi(av[i]) <= 0)
+		if (ft_contains_non_digit(av[i]) || (ft_atoi(av[i]) <= 0 && i != 5))
 			return (ft_print_usage(), 0);
 		i++;
 	}

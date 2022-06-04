@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 10:08:50 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/05/26 10:09:03 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/04 13:31:44 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,4 @@
 void	ft_error(char *msg)
 {
 	ft_putendl_fd(msg, 2);
-	exit(1);
 }
