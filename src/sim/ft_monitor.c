@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 13:40:01 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/03 14:33:25 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/04 13:52:36 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ int	ft_monitor(t_state *state)
 		if (state->philos[i].last_time_eaten + state->time_to_die <= ft_current_time(state))
 		{
 			state->flag = 1;
-			ft_log("Is dead.", i, state);
+			pthread_mutex_lock(&state->writing);
+			printf("%10d: %d Is dead.\n", ft_current_time(state), i + 1);
 			return (1);
 		}
 		if (state->total_eats != -1 && ft_all_ate(state))
