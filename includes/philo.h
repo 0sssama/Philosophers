@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 11:22:04 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/04 13:33:21 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/04 13:59:05 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 # include <sys/time.h>
 # include "libft.h"
 
-
-// define a struct called s_philo
 typedef struct s_philo
 {
 	int				id;
@@ -28,21 +26,19 @@ typedef struct s_philo
 	pthread_t		thread;
 	pthread_mutex_t	left_fork;
 	pthread_mutex_t	*right_fork;
-	struct	s_state	*state;
+	struct s_state	*state;
 }	t_philo;
 
+typedef struct timeval	t_time;
 
-typedef struct timeval t_time;
-
-// define a struct called s_state
-typedef struct	s_state
+typedef struct s_state
 {
-	int				num_of_philos; // also num of forks
-	int				time_to_die; // in ms
-	int				time_to_eat; // in ms
-	int				time_to_sleep; // in ms
-	int				total_eats; // in ms
-	int				time_of_start; // in ms
+	int				num_of_philos;
+	int				time_to_die;
+	int				time_to_eat;
+	int				time_to_sleep;
+	int				total_eats;
+	int				time_of_start;
 	int				flag;
 	t_philo			*philos;
 	pthread_mutex_t	writing;

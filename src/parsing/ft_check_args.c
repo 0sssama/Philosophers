@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 11:31:58 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/04 13:35:08 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/04 13:56:17 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	ft_print_usage(void)
 {
 	ft_putstr_fd("Usage: ./philo [num_of_philos] [time_to_die] "
-	"[time_to_eat] [time_to_sleep] [optional: num_of_times_to_eat]\n", 2);
+		"[time_to_eat] [time_to_sleep] [optional: num_of_times_to_eat]\n", 2);
 }
 
 static int	ft_contains_non_digit(char *str)

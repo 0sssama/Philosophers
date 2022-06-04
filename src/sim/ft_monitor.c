@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 13:40:01 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/04 13:52:36 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/04 13:56:06 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ int	ft_monitor(t_state *state)
 	i = 0;
 	while (i < state->num_of_philos)
 	{
-		if (state->philos[i].last_time_eaten + state->time_to_die <= ft_current_time(state))
+		if (state->philos[i].last_time_eaten + state->time_to_die
+			<= ft_current_time(state))
 		{
 			state->flag = 1;
 			pthread_mutex_lock(&state->writing);
