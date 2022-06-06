@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 11:49:56 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/04 13:34:49 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/06 11:19:31 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,16 @@ int	ft_fill_state(t_state *state, char **av)
 	if (av[5])
 	{
 		state->total_eats = ft_atoi(av[5]);
-		if (state->total_eats == 0)
-			return (1);
 	}
 	else
 		state->total_eats = -1;
 	if (ft_allocate_philos(state))
 		return (1);
 	ft_set_right_fork(state);
-	pthread_mutex_init(&state->writing, NULL);
+	if (pthread_mutex_init(&state->writing, NULL))
+	{
+		ft_error("Mutex init failed");
+		return (1);
+	}
 	return (0);
 }

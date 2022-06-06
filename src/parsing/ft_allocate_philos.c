@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 12:01:46 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/04 13:33:48 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/06 11:18:14 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,11 @@ int	ft_allocate_philos(t_state *state)
 		philos[i].id = i;
 		philos[i].state = state;
 		philos[i].last_time_eaten = 0;
-		pthread_mutex_init(&philos[i].left_fork, NULL);
+		if (pthread_mutex_init(&philos[i].left_fork, NULL))
+		{
+			ft_error("Mutex init failed");
+			return (1);
+		}
 		i++;
 	}
 	state->philos = philos;
