@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 11:22:04 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/04 13:59:05 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/13 17:50:30 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_set_right_fork(t_state *state);
 
 // simulation
 int		ft_current_time(t_state *state);
-void	ft_init_simulation(t_state *state);
+int		ft_init_simulation(t_state *state);
 void	ft_log(char *str, int id, t_state *state);
 void	ft_lock_right_fork(t_philo *philo);
 void	ft_lock_left_fork(t_philo *philo);

@@ -6,7 +6,7 @@
 /*   By: olabrahm <olabrahm@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:01:03 by olabrahm          #+#    #+#             */
-/*   Updated: 2022/06/08 20:05:25 by olabrahm         ###   ########.fr       */
+/*   Updated: 2022/06/13 18:05:24 by olabrahm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 static void	ft_eat(t_philo *ph)
 {
-	if (ph->id % 2 == 0)
-	{
-		ft_lock_left_fork(ph);
-		ft_lock_right_fork(ph);
-	}
-	else
-	{
-		ft_lock_right_fork(ph);
-		ft_lock_left_fork(ph);
-	}
+	// if (ph->id % 2 == 2)
+	// {
+	// 	ft_lock_left_fork(ph);
+	// 	ft_lock_right_fork(ph);
+	// }
+	// else
+	// {
+	// 	ft_lock_right_fork(ph);
+	// 	ft_lock_left_fork(ph);
+	// }
+	ft_lock_left_fork(ph);
+	ft_lock_right_fork(ph);
 	ph->last_time_eaten = ft_current_time(ph->state);
 	ft_log("Is eating...", ph->id, ph->state);
 	ph->times_eaten++;
@@ -37,19 +39,19 @@ static void	*ft_routine(void *philo)
 	t_philo		*ph;
 
 	ph = (t_philo *)philo;
-	if (ph->id % 2 == 0)
+	if (ph->id % 2)
 		usleep(100);
 	while (!ph->state->flag)
 	{
-		ft_log("Is thinking...", ph->id, ph->state);
 		ft_eat(ph);
 		ft_log("Is sleeping...", ph->id, ph->state);
 		ft_usleep(ph->state->time_to_sleep);
+		ft_log("Is thinking...", ph->id, ph->state);
 	}
 	return (NULL);
 }
 
-void	ft_init_simulation(t_state *state)
+int	ft_init_simulation(t_state *state)
 {
 	int	i;
 
@@ -57,8 +59,13 @@ void	ft_init_simulation(t_state *state)
 	state->time_of_start = ft_current_time(state);
 	while (i < state->num_of_philos)
 	{
-		pthread_create(&state->philos[i].thread, NULL,
-			ft_routine, &state->philos[i]);
+		if (pthread_create(&state->philos[i].thread, NULL,
+			ft_routine, &state->philos[i]) != 0)
+		{
+			ft_error("Thread creation failed");
+			return (1);
+		}
 		i++;
 	}
+	return (0);
 }
